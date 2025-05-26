@@ -1,0 +1,26 @@
+import numpy as np
+
+# Gradient Descent 함수 정의
+def gradient_descent(learning_rate=0.1, iterations=100, initial_point=(1.0, 1.0)):
+    x0, x1 = initial_point
+    history = [(x0, x1)]  # 진행 상황을 기록
+    
+    for _ in range(iterations):
+        # Gradient 계산
+        grad_x0 = 2 * x0
+        grad_x1 = 2 * x1
+        
+        # 파라미터 업데이트
+        x0 -= learning_rate * grad_x0
+        x1 -= learning_rate * grad_x1
+        
+        # 진행 상황 기록
+        history.append((x0, x1))
+        
+    return x0, x1, history
+
+# 실행: 초기값 (1.0, 1.0)에서 시작
+final_x0, final_x1, path = gradient_descent(learning_rate=0.1, iterations=100, initial_point=(1.0, 1.0))
+
+# 결과 출력
+final_x0, final_x1
